@@ -19,7 +19,7 @@ class UpdatingCategoryTest extends TestCase
     public function a_guest_cannot_update_a_category() {
         $category = factory(Category::class)->create();
         $data = ['name' => 'New Name'];
-        $response = $this->putJson('/api/category/'.$category->id, $data);
+        $response = $this->putJson('/category/'.$category->id, $data);
         $response->assertStatus(Response::HTTP_UNAUTHORIZED);
     }
 
@@ -31,10 +31,9 @@ class UpdatingCategoryTest extends TestCase
         $category = factory(Category::class)->create();
         $data = ['name' => 'New name'];
         Passport::actingAs(factory(User::class)->create());
-        $response = $this->putJson('/api/category/'.$category->id, $data);
-        $response->assertOk();
+        $response = $this->putJson('/category/'.$category->id, $data);
+        $response->assertRedirect();
         $this->assertEquals($data['name'], $category->fresh()->name);
-        $response->assertJson(['data' => Category::first()->toArray()]);
     }
 
     /**
@@ -44,7 +43,7 @@ class UpdatingCategoryTest extends TestCase
         $category = factory(Category::class)->create();
         $data = ['name' => null];
         Passport::actingAs(factory(User::class)->create());
-        $response = $this->putJson('/api/category/'.$category->id, $data);
+        $response = $this->putJson('/category/'.$category->id, $data);
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
         $this->assertNotEquals($data['name'], $category->fresh()->name);
     }
@@ -57,7 +56,7 @@ class UpdatingCategoryTest extends TestCase
         $category2 = factory(Category::class)->create();
         $data = ['name' => $category->name];
         Passport::actingAs(factory(User::class)->create());
-        $response = $this->putJson('/api/category/'.$category2->id, $data);
+        $response = $this->putJson('/category/'.$category2->id, $data);
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
         $this->assertNotEquals($data['name'], $category2);
     }

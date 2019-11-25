@@ -19,7 +19,7 @@ class CreatingCategoriesTest extends TestCase
     public function a_guest_cannot_create_a_category() {
         $data = ['name' => 'Category name'];
         $response = $this->postJson('/api/categories', $data);
-        $response->assertStatus(Response::HTTP_UNAUTHORIZED);
+        $response->assertRedirect();
     }
 
     /**
@@ -29,9 +29,8 @@ class CreatingCategoriesTest extends TestCase
         $data = ['name' => 'Category name'];
         Passport::actingAs(factory(User::class)->create());
         $response = $this->postJson('/api/categories', $data);
-        $response->assertOk();
+        $response->assertRedirect();
         $this->assertCount(1, Category::all());
-        $response->assertJson(['data' => Category::first()->toArray()]);
     }
 
     /**

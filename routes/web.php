@@ -22,3 +22,5 @@ Route::post('/posts', 'PostsController@store')->name('posts.store');
 Route::get('/categories', 'HomeController@categories')->name('categories');
 Route::put('/category/{category}', 'CategoriesController@update')->name('categories.update')->middleware('auth');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/categories/{category}/posts', 'CategoryPostsController@show')->name('categories.show');

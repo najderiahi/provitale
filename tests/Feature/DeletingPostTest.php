@@ -7,8 +7,10 @@ use App\Post;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Response;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Passport\Passport;
 use Tests\TestCase;
 
 class DeletingPostTest extends TestCase
@@ -35,7 +37,7 @@ class DeletingPostTest extends TestCase
     public function a_guest_cannot_delete_a_post()
     {
         $post = factory(Post::class)->create();
-        $response = $this->delete("/post/$post->id");
+        $response = $this->delete("api/post/$post->id");
         $response->assertRedirect();
         $this->assertCount(1, Post::all());
     }
@@ -61,12 +63,12 @@ class DeletingPostTest extends TestCase
         $this->withoutExceptionHandling();
 
         $user = factory(User::class)->create();
-        $this->actingAs($user);
+        Passport::actingAs($user);
 
         $this->createPost();
         $post = Post::first();
-        $response = $this->delete("/post/$post->id");
-        $response->assertRedirect();
+        $response = $this->delete("api/post/$post->id");
+        $response->assertStatus(202);
         $this->assertCount(0, Post::all());
         Storage::disk('public')->assertMissing($post->image_location);
     }
