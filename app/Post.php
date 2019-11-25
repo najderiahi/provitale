@@ -29,7 +29,7 @@ class Post extends Model
 
     public static function filterPosts()
     {
-        return static::filterAll()->get();
+        return static::filterAll()->paginate();
     }
 
     public static function getPath($image)

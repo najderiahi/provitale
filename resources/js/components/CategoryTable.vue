@@ -24,7 +24,7 @@
                 </tr>
             </template>
             <template v-else>
-                <tr class="flex justify-content-center items-center p-6 text-gray-700" colspan="0">Pas d'annonces
+                <tr class="flex justify-content-center items-center p-6 text-gray-700" colspan="0">Pas de catégories
                     disponibles
                 </tr>
             </template>

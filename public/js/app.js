@@ -21117,7 +21117,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "Pas d'annonces\n                disponibles\n            "
+                          "Pas de catégories\n                disponibles\n            "
                         )
                       ]
                     )

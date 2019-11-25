@@ -27,33 +27,35 @@
                     </svg>
                 </button>
                 <div class="px-6">
-                    <h2 class="text-gray-400 mt-12 text-2xl">Filtres</h2>
-                    @if(isset($categories) && !$categories->isEmpty())
-                        <div class="mt-4 mb-2 border-b border-gray-400">
-                            <span class="text-gray-600 text-sm tracking-wide uppercase font-bold">Account Type</span>
-                            <div class="mt-2 flex">
-                                @foreach($categories as $category)
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" class="form-checkbox" name="category[]"
-                                               value="{{ $category->id }}">
-                                        <span class="ml-2 text-white">{{ $category->name }}</span>
-                                    </label>
-                                @endforeach
+                    <div class="overflow-y-auto">
+                        <h2 class="text-gray-400 mt-12 text-2xl">Filtres</h2>
+                        @if(isset($categories) && !$categories->isEmpty())
+                            <div class="mt-4 mb-2 border-b border-gray-700 pb-6">
+                                <span class="text-gray-600 text-sm tracking-wide uppercase font-bold">Catégories</span>
+                                <div class="mt-2">
+                                    @foreach($categories as $category)
+                                        <label class="inline-flex items-center py-2">
+                                            <input type="checkbox" class="form-checkbox" name="category[]"
+                                                   value="{{ $category->name }}">
+                                            <span class="ml-2 text-white">{{ $category->name }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                    @endif
+                        @endif
 
-                    <div class="mt-4">
-                        <span class="text-gray-600 text-sm tracking-wide uppercase font-bold">Account Type</span>
-                        <div class="mt-2">
-                            <label class="inline-flex items-center">
-                                <input type="radio" class="form-radio" name="sort" value="oldest">
-                                <span class="ml-2 text-white">Ancien</span>
-                            </label>
-                            <label class="inline-flex items-center ml-6">
-                                <input type="radio" class="form-radio" name="sort" value="latest" checked>
-                                <span class="ml-2 text-white">Récent</span>
-                            </label>
+                        <div class="mt-4">
+                            <span class="text-gray-600 text-sm tracking-wide uppercase font-bold">Chronologie</span>
+                            <div class="mt-2">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="form-radio" name="sort" value="oldest">
+                                    <span class="ml-2 text-white">Ancien</span>
+                                </label>
+                                <label class="inline-flex items-center ml-6">
+                                    <input type="radio" class="form-radio" name="sort" value="latest" checked>
+                                    <span class="ml-2 text-white">Récent</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="-px-6 px-6 py-3 absolute bottom-0 left-0 right-0 bg-gray-800">

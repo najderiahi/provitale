@@ -24,6 +24,7 @@
                             <a href="{{ route('home') }}" class="block px-6 py-1 hover:text-white hover:bg-indigo-600">Annonces</a>
                             <a href="{{ route('categories') }}" class="block px-6 py-1 hover:text-white hover:bg-indigo-600">Catégories</a>
                             <form action="{{ route('logout') }}" method="post">
+                                @csrf
                                 <button class="px-6 py-1 hover:text-white hover:bg-indigo-600">Déconnexion</button>
                             </form>
                             </div>
