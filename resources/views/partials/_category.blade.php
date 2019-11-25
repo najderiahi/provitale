@@ -4,11 +4,13 @@
     </div>
     <section class="my-6">
         <div class="flex flex-wrap -mx-3">
-            @foreach($category->posts as $post)
+            @forelse($category->posts as $post)
                 <div class="w-full md:w-1/3 sm:w-1/2 px-3 mt-4">
                     @include('partials._post', ['post' => $post])
                 </div>
-            @endforeach
+            @empty
+                <div class="px-3 font-bold text-gray-600">Pas de posts dans cette catégorie</div>
+            @endforelse
         </div>
     </section>
 </div>
