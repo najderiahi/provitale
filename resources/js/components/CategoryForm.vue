@@ -9,8 +9,8 @@
             <span class="block text-sm text-red-700 font-bold" v-if="this.hasNameError">{{ this.errors.name[0] }}</span>
         </div>
         <div class="flex">
-            <button class="bg-indigo-800 px-4 py-2 text-white rounded border border-indigo-800 mx-2">{{ !this.isCategory ? 'Créer une nouvelle catégorie' : 'Modifier cette catégorie'}}</button>
-            <button type="reset" class="bg-transparent px-4 py-2 text-indigo-800 border border-indigo-800 rounded">Annuler</button>
+            <button class="bg-indigo-800 px-4 py-2 text-white rounded border border-indigo-800 mx-2">{{ !this.isCategory ? 'Créer une catégorie' : 'Modifier cette catégorie'}}</button>
+            <input type="reset" @click="$emit('discard')" class="bg-transparent px-4 py-2 text-indigo-800 border border-indigo-800 rounded" value="Annuler"/>
         </div>
     </form>
 </template>

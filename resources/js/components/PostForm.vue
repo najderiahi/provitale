@@ -4,7 +4,7 @@
         <input type="hidden" name="_method" value="PUT" v-if="this.isPost">
         <div class="flex flex-col mb-6">
             <label class="text-gray-700 mb-2">Image</label>
-            <file-upload :error="this.errors.image" :old="this.post ? this.post.url : null"></file-upload>
+            <file-upload :error="this.errors.image" :old="oldPicture"></file-upload>
         </div>
         <div class="flex flex-col mb-6">
             <label for="category" class="text-gray-700 mb-2">Catégorie</label>
@@ -28,8 +28,8 @@
             <span class="block text-sm text-red-700 font-bold" v-if="this.hasDescriptionError">{{ this.errors.description[0] }}</span>
         </div>
         <div class="flex">
-            <button class="bg-indigo-800 px-4 py-2 text-white rounded border border-indigo-800 mx-2">{{ !this.isPost ? 'Créer une nouvelle annonce' : 'Modifier cette annonce'}}</button>
-            <button type="reset" class="bg-transparent px-4 py-2 text-indigo-800 border border-indigo-800 rounded">Annuler</button>
+            <button class="bg-indigo-800 px-4 py-2 text-white rounded border border-indigo-800 mx-2">{{ !this.isPost ? 'Créer une annonce' : 'Modifier cette annonce'}}</button>
+            <input type="reset" @click="discardPost" class="bg-transparent px-4 py-2 text-indigo-800 border border-indigo-800 rounded" value="Annuler"/>
         </div>
     </form>
 </template>
@@ -45,6 +45,7 @@
         data() {
             return {
                 realAction : this.action,
+                oldPicture: null,
             }
         },
         components: {
@@ -55,8 +56,10 @@
 
                 if(this.post) {
                     this.realAction = this.post.update_url;
+                    this.oldPicture = this.post.url;
                 } else {
                     this.realAction = this.action;
+                    this.oldPicture = null;
                 }
             }
         },
@@ -75,6 +78,12 @@
             },
             isPost() {
                 return this.post !== undefined && this.post !== null;
+            }
+        },
+        methods: {
+            discardPost() {
+                this.$emit('discard')
+
             }
         }
     }

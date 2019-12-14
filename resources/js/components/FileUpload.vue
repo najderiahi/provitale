@@ -34,6 +34,8 @@
             old (newValue, oldValue) {
                 if(newValue) {
                     this.url = newValue;
+                } else {
+                    this.url = '';
                 }
             }
         },

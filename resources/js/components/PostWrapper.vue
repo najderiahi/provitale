@@ -2,7 +2,7 @@
     <div class="flex">
         <slot></slot>
         <slot name="table" :post="post" :selectPost="selectPost"></slot>
-        <slot name="form" :post="post"></slot>
+        <slot name="form" :post="post" :discard="discardPost"></slot>
     </div>
 </template>
 <script>
@@ -16,6 +16,9 @@
             selectPost (post) {
                 this.post = post
                 console.log(post)
+            },
+            discardPost() {
+                this.post = null
             }
         }
     }

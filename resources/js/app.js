@@ -11,8 +11,9 @@ import PostWrapper from './components/PostWrapper'
 import CategoryWrapper from './components/CategoryWrapper'
 import CategoryForm from './components/CategoryForm'
 import CategoryTable from './components/CategoryTable'
+import PostComponent from './components/PostComponent'
 
 const app = new Vue({
     el: '#app',
-    components: {CategoryForm, CategoryTable, CategoryWrapper, ToggleComponent, TogglingTrigger, ToggleableItem, PostForm, PostTable, PostWrapper, SearchFilter}
+    components: {CategoryForm, CategoryTable, CategoryWrapper, ToggleComponent, TogglingTrigger, ToggleableItem, PostForm, PostTable, PostWrapper, SearchFilter, PostComponent}
 });

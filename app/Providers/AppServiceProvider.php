@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['partials._search'], function ($view) {
+        View::composer(['layouts.guest'], function ($view) {
             $view->with('categories', Category::all());
         });
     }

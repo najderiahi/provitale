@@ -16,7 +16,6 @@ class SearchingPostsTest extends TestCase
      */
     public function searching_by_category_slug_gives_only_posts_from_that_category()
     {
-        $this->withoutExceptionHandling();
         $category = Category::create(['name' => 'First']);
         $category2 = Category::create(['name' => 'Second']);
         $posts = collect([
@@ -31,7 +30,8 @@ class SearchingPostsTest extends TestCase
         $response = $this->get('/search?category[]='.$category->name);
         $this->assertCount(3, $response->data('posts'));
         $dbPosts = Post::where('category_id', 1)->get();
-        $dbPosts->assertEquals($response->data('posts'));
+        $postsData = $response->data('posts');
+        $dbPosts->assertEquals($postsData->items());
     }
 
     /**

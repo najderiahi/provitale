@@ -11,8 +11,8 @@
             <div class="w-2/3 px-3" slot="table" slot-scope="{selectCategory}">
                 <category-table :select-category="selectCategory" @update="selectCategory"></category-table>
             </div>
-            <div class="w-1/3 px-3" slot="form" slot-scope="{ category }">
-                <category-form :errors='@json($errors->toArray())' action="{{ route('categories.store') }}" :category="category">
+            <div class="w-1/3 px-3" slot="form" slot-scope="{ category, discard }">
+                <category-form :errors='@json($errors->toArray())' @discard="discard" action="{{ route('categories.store') }}" :category="category">
                     @csrf
                 </category-form>
             </div>

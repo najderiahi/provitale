@@ -1,8 +1,7 @@
 
-<div class="rounded-lg bg-white overflow-hidden shadow-lg">
-    <img class="h-48 w-full object-cover" src="{{ $post->url }}" alt="">
-
-    <div class="py-6 px-3" >
-        <h3 class="block text-gray-600 font-bold overflow-hidden h-20 leading-relaxed" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $post->description }}</h3>
+<div class="bg-white h-64 overflow-hidden relative">
+    <img class="w-full object-cover object-center" src="{{ $post->url }}" alt="">
+    <div>
+        <h3 class="block text-gray-600 font-bold overflow-hidden h-20 leading-relaxed">{{ $post->description }}</h3>
     </div>
 </div>

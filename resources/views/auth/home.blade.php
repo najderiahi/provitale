@@ -10,9 +10,9 @@
             <div class="w-2/3 px-3" slot="table" slot-scope="{selectPost}">
                 <post-table :select-post="selectPost" @update="selectPost"></post-table>
             </div>
-            <div class="w-1/3 px-3" slot="form" slot-scope="{ post }">
+            <div class="w-1/3 px-3" slot="form" slot-scope="{ post, discard }">
                 <post-form :errors='@json($errors->toArray())' action="{{ route('posts.store') }}"
-                           :categories='@json($categories)' :post="post">
+                           :categories='@json($categories)' :post="post" @discard="discard">
                     @csrf
                 </post-form>
             </div>

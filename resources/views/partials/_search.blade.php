@@ -1,16 +1,16 @@
-<form action="{{ route('search') }}" method="GET" class="flex flex-1">
-    <div class="flex-1 flex items-center justify-start ml-8 relative bg-indigo-900 px-3 rounded">
-        <svg class="w-5 h-5 fill-current text-gray-400 mr-2" viewBox="0 0 20 20">
+<form action="{{ route('search') }}" method="GET" class="flex flex-wrap items-center sm:flex-no-wrap justify-between xl:justify-start">
+    <div class="xl:mx-4 mt-4 sm:mt-0 inline-flex items-center justify-start xl:ml-8 relative bg-gray-800 xl:bg-gray-700 px-3 py-2 rounded w-full sm:w-auto">
+        <svg class="w-5 h-5 fill-current text-gray-400 mr-2 flex-shrink-0" viewBox="0 0 20 20">
             <path
                 d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
         </svg>
-        <input type="search" class="block max-w-3xl bg-transparent text-white py-2"
+        <input type="search" class="bg-transparent text-white max-w-md w-full overflow-hidden flex-shrink"
                placeholder="Recherchez des mots-clés" name="query">
     </div>
-    <toggle-component>
-        <div slot="trigger" slot-scope="{ toggle }">
+    <toggle-component class="w-full sm:w-auto my-3 xl:mx-4">
+        <div slot="trigger" slot-scope="{ toggle }" class="w-full">
             <button type="button" @click="toggle"
-                    class="inline-flex justify-center items-center text-gray-400 bg-indigo-700 px-4 py-2 rounded ml-4">
+                    class="flex justify-center items-center text-gray-400 bg-gray-600 xl:bg-gray-900 px-4 py-2 shadow rounded w-full">
                 <svg class="w-4 h-4 fill-current mx-1" viewBox="0 0 20 20">
                     <path
                         d="M17 16v4h-2v-4h-2v-3h6v3h-2zM1 9h6v3H1V9zm6-4h6v3H7V5zM3 0h2v8H3V0zm12 0h2v12h-2V0zM9 0h2v4H9V0zM3 12h2v8H3v-8zm6-4h2v12H9V8z"/>

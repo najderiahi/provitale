@@ -26,7 +26,7 @@
                         </div>
                         <div slot="toggleable" slot-scope="{ isOpen, close }">
                             <div class="fixed inset-0 bg-transparent" v-show="isOpen" @click="close"></div>
-                            <div  class="absolute bg-white py-3 rounded shadow-lg -ml-5" v-show="isOpen">
+                            <div  class="absolute bg-white py-3 rounded shadow-lg z-50 -ml-5" v-show="isOpen">
                                 <a href="{{ route('home') }}" class="block px-6 py-1 hover:text-white hover:bg-indigo-600">Annonces</a>
                                 <a href="{{ route('categories') }}" class="block px-6 py-1 hover:text-white hover:bg-indigo-600">Catégories</a>
                                 <form action="{{ route('logout') }}" method="post" class="z-20 relative">

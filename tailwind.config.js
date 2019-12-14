@@ -6,6 +6,15 @@ module.exports = {
                 '84': '21rem',
                 '96': '24rem',
             },
+            height: {
+                "1/2": "50%",
+                "3/4": "75%",
+                "5/6": "83.333333%",
+            },
+            width: {
+                "1/2": "50%",
+                "3/4": "75%",
+            },
             fontFamily: {
                 'display': ['Poppins', 'sans-serif'],
             }
