@@ -25,5 +25,5 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/categories/{category}/posts', 'CategoryPostsController@show')->name('categories.show');
 
-Route::view('/about', 'misc.about');
-Route::view('/contact', 'misc.contact');
+Route::view('/about', 'misc.about')->name('about');
+Route::view('/contact', 'misc.contact')->name('contact');

@@ -1,11 +1,11 @@
 @extends('layouts.guest')
 
 @section('main')
-    <div>
-        <h1>À notre sujet</h1>
-        <div>
-            <h3>À propos de Provital</h3>
-            <p> Promue en 1979 par Monsieur Rachid NAJAR, PROVITAL est une entreprise spécialisée dans la nutrition
+    <h1 class="font-bold text-3xl sm:px-24 px-6 my-4">À notre sujet</h1>
+    <div class="px-6 sm:px-24 flex flex-col-reverse lg:flex-row">
+        <div class="lg:w-1/2 w-full">
+            <h3 class="font-bold text-2xl mb-3">À propos de Provital</h3>
+            <p class="mb-2"> Promue en 1979 par Monsieur Rachid NAJAR, PROVITAL est une entreprise spécialisée dans la nutrition
                 animale
                 implantée dans la zone industrielle de Grombalia à environ 35 km de Tunis. Elle produit des aliments,
                 compléments minéralo-vitaminiques ( CMV ) et additifs ; mais surtout apporte des solutions
@@ -14,7 +14,7 @@
                 à se
                 faire une image de partenaire privilégié de l'éleveur.
             </p>
-            <p>
+            <p class="mb-3">
                 PROVITAL répond aussi aux attentes des usines d'aliments quelques soient leurs capacités de production,
                 en
                 mettant à leur disposition, en plus des CMV dont elles ont besoin, de la matière première nécessaire (
@@ -25,8 +25,8 @@
                 PROVITAL est
                 adhérent.
             </p>
-            <h3>PROVITAL est en outre</h3>
-            <ul>
+            <h3 class="font-bold text-2xl mb-2">PROVITAL est en outre</h3>
+            <ul class="mb-4">
                 <li> 40 000 Tonnes d'aliments produits / an</li>
                 <li>38 000m² de surface couverte</li>
                 <li>25 000 Tonnes de capacité de stockage en vertical</li>
@@ -36,8 +36,8 @@
                     Maritime et Terrestre )
                 </li>
             </ul>
-            <h3>Nos Atouts</h3>
-            <ul>
+            <h3 class="font-bold text-2xl mb-3">Nos Atouts</h3>
+            <ul class="mb-8 list-inside">
                 <li> Nos produits sont à base végétale exempte de dioxine, de farine animale et de tous autres produits
                     toxiques.
                 </li>
@@ -57,8 +57,8 @@
                 </li>
             </ul>
         </div>
-        <div>
-            <iframe src="http://player.vimeo.com/video/24535181?title=0&amp;byline=0" seamless="" width="500"
+        <div class="lg:w-1/2 mx-auto w-full mb-12">
+            <iframe class="mx-auto" src="http://player.vimeo.com/video/24535181?title=0&amp;byline=0" seamless="" width="500"
                     height="281"></iframe>
         </div>
     </div>

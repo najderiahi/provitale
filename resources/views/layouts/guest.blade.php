@@ -9,11 +9,6 @@
                 <div class="hidden xl:block">
                     @include('partials._search')
                 </div>
-                <button class="text-white md:invisible ml-auto">
-                    <svg class="fill-current w-6 h-6" viewBox="0 0 20 20">
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                    </svg>
-                </button>
                 <ul class="block md:inline-block ml-auto md:flex md:items-center md:justify-between">
                     <li class="md:mx-4">
                         <a href="/" class="text-white">Accueil</a></li>
@@ -34,19 +29,19 @@
                                 <div class="fixed inset-0 bg-red z-50" v-show="isOpen" @click="close"></div>
                                 <div class="absolute bg-gray-700 py-3 rounded shadow-lg z-50 mt-2" v-show="isOpen">
                                     @foreach($categories as $category)
-                                        <a href="{{ route('home') }}"
+                                        <a href="{{ route("categories.show", ["category" => $category->id]) }}"
                                            class="block px-6 py-1 text-white hover:text-gray-300">{{ $category->name }}</a>
                                     @endforeach
                                 </div>
                             </div>
                         </toggle-component>
                     </li>
-                    <li class="md:mx-4 my-2"><a href="" class="text-white">Contact</a></li>
-                    <li class="md:mx-4 my-2"><a href="" class="text-white">À propos</a></li>
+                    <li class="md:mx-4 my-2"><a href="{{ route('contact') }}" class="text-white">Contact</a></li>
+                    <li class="md:mx-4 my-2"><a href="{{ route('about') }}" class="text-white">À propos</a></li>
                 </ul>
                 @guest
                     <a href="{{ route('login') }}"
-                       class="text-white px-4 ml-4 py-2 border border-white rounded hover:bg-white hover:text-indigo-800 block">Se
+                       class="text-white px-4 md:ml-4 py-2 border border-white rounded hover:bg-white hover:text-indigo-800 block">Se
                         connecter</a>
                 @else
                     <toggle-component class="relative">
@@ -82,13 +77,7 @@
                 @include('partials._search')
             </div>
         </header>
-        <div class="h-5/6 flex relative"
-             style="background-image: url('./assets/intro-background.jpg'); background-position: 50%, 20%; background-size: cover; background-repeat: no-repeat;">
-            <div class="absolute w-full h-full flex justify-center items-center text-center"
-                 style="background-color: rgba(0, 0, 0, 0.4);">
-                <h3 class="relative text-white text-6xl font-bold">Bienvenu à Provital !</h3>
-            </div>
-        </div>
         @yield('main')
+        @include('partials._footer')
     </div>
 @stop
