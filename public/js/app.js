@@ -22382,7 +22382,7 @@ var render = function() {
                             {
                               on: {
                                 click: function($event) {
-                                  return _vm.deletePost(post)
+                                  return _vm.deletePost(post.id)
                                 }
                               }
                             },
